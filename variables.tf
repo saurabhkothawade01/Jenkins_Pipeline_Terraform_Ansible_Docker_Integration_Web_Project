@@ -1,11 +1,11 @@
 variable "keyName" {
       type = string
-      default = "myterraformkey"
+      default = "../myterraformkey"
 }
 
 variable "publicKeyLocation" {
       type = string
-      default = "myterraformkey.pub"
+      default = "../myterraformkey.pub"
 }
 
 variable "privateKeyLocation" {
