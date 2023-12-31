@@ -1,0 +1,19 @@
+---
+- hosts: web
+  gather_facts: false
+  become: true
+
+  tasks:
+    - name: Add repository
+      ansible.builtin.command: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+    - name: Install Docker packages
+      package:
+        name: docker-ce
+        state: present
+
+    - name: Start and enable Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes

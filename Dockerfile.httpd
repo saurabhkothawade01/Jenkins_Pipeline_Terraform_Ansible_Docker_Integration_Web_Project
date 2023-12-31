@@ -1,0 +1,11 @@
+FROM docker.io/httpd:latest
+
+COPY index.html /usr/local/apache2/htdocs/
+
+# Add a script to replace the placeholder with the server's hostname
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["httpd-foreground"]
+
